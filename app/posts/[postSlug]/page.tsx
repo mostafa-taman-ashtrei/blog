@@ -1,15 +1,14 @@
 import React from "react"
 import { nextProps } from "@/app/types/params.type"
-import fs from "fs"
 import Markdown from "markdown-to-jsx"
-import matter from "gray-matter"
+import getPostMetadata from "@/app/utils/markdown/getPostMetaData"
+import getPostContent from "@/app/utils/markdown/getPostContent"
 
-const getPostContent = (postSlug: string) => {
-    const postFolder = "posts/"
-    const filePath = `${postFolder}${postSlug}.md`
-    const fileContent = fs.readFileSync(filePath, "utf-8")
-    const grayMatter = matter(fileContent)
-    return grayMatter
+export const generateStaticParams = async () => {
+    const posts = getPostMetadata()
+    return posts.map((post) => ({
+        postSlug: post.slug,
+    }))
 }
 
 const postPage = (props: nextProps) => {
