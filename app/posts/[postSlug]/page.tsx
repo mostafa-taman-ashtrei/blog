@@ -16,11 +16,18 @@ const postPage = (props: nextProps) => {
     const post = getPostContent(postSlug)
 
     return (
-        <>
-            <h1>{post.data.date}</h1>
-            <h2>This is the {props.params.postSlug} post</h2>
-            <Markdown>{post.content}</Markdown>
-        </>
+        <div>
+            <div className="my-12 text-center">
+                <h1 className="text-2xl text-slate-600 ">{post.data.title}</h1>
+                <p className="text-slate-400 mt-2">{post.data.date}</p>
+            </div>
+
+            <div className="prose prose-slate mx-auto lg:prose-lg">
+                <article>
+                    <Markdown>{post.content}</Markdown>
+                </article>
+            </div>
+        </div>
     )
 }
 export default postPage

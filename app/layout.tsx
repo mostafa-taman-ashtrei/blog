@@ -1,6 +1,7 @@
 import React from "react"
 import Header from "@/app/components/nav/Header"
 import Footer from "@/app/components/nav/Footer"
+import "@/styles/globals.css"
 
 export const metadata = {
   title: "The Davinci Blog",
@@ -14,9 +15,11 @@ interface RootLayoutProps {
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => (
   <html lang="en">
     <body>
-      <Header />
-      {children}
-      <Footer />
+      <div>
+        <Header />
+        {children}
+        <Footer />
+      </div>
     </body>
   </html>
 )
