@@ -2,22 +2,21 @@ import Image from "next/image"
 import Link from "next/link"
 import React from "react"
 
-const Header: React.FC = () => <header>
-    <div className="text-center bg-gray-900 p-2 mb-2">
-        <Image
-            src="/logo.png"
-            width={40}
-            height={40}
-            className="mx-auto"
-            alt={"logo"}
-        />
+const Header: React.FC = () => <header className="bg-gray-900">
+
+    <nav className="flex flex-col px-1 py-1 sm:flex-row sm:justify-between sm:items-center">
 
         <Link href="/">
-            <h1 className="text-2xl text-white font-bold mt-4"> The Davinci Blog</h1>
+            <Image
+                src="/logo.png"
+                width={40}
+                height={40}
+                className="rounded-xl w-auto h-6 sm:h-7"
+                alt={"logo"}
+            />
         </Link>
-
-        <p className="text-slate-300">🤟 Welcome to the Davinci Blog 💻</p>
-    </div>
+        <div className="flex items-center mt-2 -mx-2 sm:mt-0" />
+    </nav>
 </header>
 
 export default Header

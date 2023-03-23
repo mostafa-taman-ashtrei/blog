@@ -2,6 +2,7 @@
 title: "Writing in Markdown"
 subtitle: "How to write blof posts in markdown"
 date: "18/3/2023"
+image: "/images/test.jpg"
 ---
 
 # headings
