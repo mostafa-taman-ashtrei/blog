@@ -16,14 +16,13 @@ const postPage = (props: nextProps) => {
     const post = getPostContent(postSlug)
 
     return (
-        <div className="max-w-screen-md mx-auto bg-white">
-            <div className="my-5 text-center">
-                <h1 className="text-2xl text-slate-600 ">{post.data.title}</h1>
-                <p className="text-slate-400 mt-2">{post.data.date}</p>
+        <div className="max-w-screen-md mx-auto bg-gray-300 border-gray-700 rounded-xl dark:bg-gray-700 ">
+            <div className="my-5 text-center text-slate-600 dark:text-white">
+                <h1 className="text-2xl ">{post.data.title}</h1>
+                <p>{post.data.date}</p>
             </div>
 
-            <hr />
-            <div className="prose prose-slate mx-auto  lg:prose-lg">
+            <div className="prose prose-slate mx-auto dark:text-white lg:prose-lg">
                 <article>
                     <Markdown>{post.content}</Markdown>
                 </article>
