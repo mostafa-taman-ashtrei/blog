@@ -15,7 +15,7 @@ interface RootLayoutProps {
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => (
   <html lang="en">
     <body>
-      <div>
+      <div className="dark:bg-gray-800  dark:text-gray-50">
         <Header />
         {children}
         <Footer />
