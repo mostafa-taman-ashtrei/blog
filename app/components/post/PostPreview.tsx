@@ -1,4 +1,5 @@
 import { PostMetaData } from "@/app/types/post.type"
+import Image from "next/image"
 import Link from "next/link"
 import React from "react"
 
@@ -7,42 +8,29 @@ interface PostPreviewProps {
 };
 
 const PostPreview: React.FC<PostPreviewProps> = ({ post }) => (
-    <div className="container h-full rounded-lg grid gap-4 grid-cols-12 mx-auto my-2 bg-gray-500  dark:bg-gray-900">
-        <div
-            className="bg-no-repeat bg-cover dark:bg-gray-700 col-span-full lg:col-span-4"
-            style={{ backgroundImage: `url(${post.image})` }}
-        />
+    <div className="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:bg-violet-400">
+        <div className="flex flex-row gap-2">
 
-        <div className="flex flex-col p-6  col-span-full row-span-full lg:col-span-8 lg:p-10">
-            <div className="flex justify-start">
-                <span className="px-2 py-1 text-xs rounded-full bg-violet-800 text-gray-200  dark:bg-violet-400 dark:text-gray-900">Label</span>
+            <div>
+                <Link href={`/posts/${post.slug}`}>
+                    <Image
+                        src={post.image}
+                        className="w-10 h-10 rounded-full"
+                        width={50}
+                        height={50}
+                        alt={`${post.title} image`}
+                    />
+                </Link>
             </div>
+            <div className="flex flex-col">
+                <Link href={`/posts/${post.slug}`}>
+                    <h3 className="hover:underline cursor-pointer text-xl font-semibold tracking-wide">
+                        {post.title}
+                    </h3>
 
-            <Link href={`/posts/${post.slug}`}>
-                <h1 className="text-3xl font-semibold hover:underline">{post.title}</h1>
-                <p className="flex-1 pt-2">{post.subtitle}</p>
-
-                <div className="hover:underline inline-flex items-center pt-2 pb-6 space-x-2 text-sm text-violet-900  dark:text-violet-400">
-                    <span>Read more</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
-                        <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                    </svg>
-                </div>
-            </Link>
-
-            <div className="flex items-center justify-between pt-2">
-                <div className="flex space-x-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 dark:text-gray-400">
-                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clipRule="evenodd" />
-                    </svg>
-                    <span className="self-center text-sm">
-                        Created by {" "}
-                        <span className="self-center text-sm text-violet-900  dark:text-violet-400">Mostafa Taman</span>
-                        {" "} on {" "}
-                        <span className="self-center text-sm text-violet-900  dark:text-violet-400">{post.date}</span>
-                    </span>
-                </div>
-                <span className="text-xs">3 min read</span>
+                </Link>
+                <time className="text-xs tracking-wide uppercase dark:text-gray-400">{post.date}</time>
+                <p className="text-sm">{post.subtitle}</p>
             </div>
         </div>
     </div>

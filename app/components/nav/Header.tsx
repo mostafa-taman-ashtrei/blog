@@ -5,7 +5,7 @@ import React from "react"
 import ThemeToggle from "./ThemeToggle"
 
 const Header: React.FC = () => (
-    <nav className="bg-gray-200 p-1 border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+    <nav className="bg-gray-200 p-1 border-gray-200 dark:bg-gray-800 dark:border-gray-700 shadow-lg">
         <div className="container flex flex-wrap items-center justify-between mx-auto">
             <Link href="/">
                 <Image
